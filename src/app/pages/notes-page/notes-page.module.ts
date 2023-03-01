@@ -1,3 +1,4 @@
+import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
@@ -8,6 +9,7 @@ import { NotesPageComponent } from './notes-page/notes-page.component';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { MatIconModule } from '@angular/material/icon';
 import { NoteComponent } from './note/note.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [NotesPageComponent, NoteComponent],
@@ -15,10 +17,12 @@ import { NoteComponent } from './note/note.component';
     CommonModule,
     NotesPageRoutingModule,
     AngularEditorModule,
+    MatFormFieldModule,
     FormsModule,
     MatIconModule,
     MatButtonModule,
     ReactiveFormsModule,
+    MatInputModule,
   ],
 })
 export class NotesPageModule {}

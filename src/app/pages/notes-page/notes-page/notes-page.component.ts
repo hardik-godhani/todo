@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { debounce } from 'lodash';
 import { Note } from 'src/app/core/model/note';
 import { NoteService } from 'src/app/core/services/note.service';
 
@@ -12,10 +13,17 @@ export class NotesPageComponent {
   pageNumber = 1;
   query = '';
   isScrolling = true;
-
+  @ViewChild('input') input;
 
   constructor(public noteService: NoteService) {
     this.getListOfNotes();
+  }
+
+  debouncedSearch = debounce((event) => this.search(event.target.value),400)
+
+  search(query: string) {
+    this.query = query;
+    this.refreshList();
   }
 
   scrollNotesList() {
@@ -38,13 +46,13 @@ export class NotesPageComponent {
       options: {
         sort: { id: -1 },
         page: this.pageNumber,
-        paginate: 6
+        paginate: 6,
       },
     };
     if (this.query) {
       model['query'] = {
-        description: this.query
-      }
+        title: this.query
+      };
     }
     this.noteService.listNotes(model).subscribe((resp: any) => {
       if (resp && resp.status == 'SUCCESS' && resp.data && resp.data.data) {
@@ -53,7 +61,7 @@ export class NotesPageComponent {
           if (resp.data.data.length > 0) {
             this.notes = [...this.notes, ...resp.data.data];
           }
-        } else if (resp.data.data.length = 6) {
+        } else if ((resp.data.data.length = 6)) {
           this.isScrolling = true;
           this.notes = [...this.notes, ...resp.data.data];
         }

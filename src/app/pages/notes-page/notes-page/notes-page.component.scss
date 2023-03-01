@@ -2,6 +2,7 @@
 .note-container {
   max-width: 920px;
   margin-top: 10px;
+  padding-right: 7px;
   margin: 0 auto;
 }
 .note-wrapper {
@@ -17,9 +18,12 @@
 .note-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 9px;
 
   margin-top: 10px;
+}
+.add-notes {
+  flex-shrink: 0;
 }
 
 .single-note {
@@ -31,8 +35,11 @@
 }
 
 .note-container {
-  height: calc(100vh - 120px);
+  height: calc(100vh - 165px);
   overflow: auto;
+}
+.ml-2 {
+  margin-left: 20px;
 }
 
 .note-container > .single-note {

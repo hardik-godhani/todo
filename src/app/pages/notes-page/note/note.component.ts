@@ -44,7 +44,11 @@ export class NoteComponent implements OnInit {
     ],
   };
 
-  constructor(private fb: FormBuilder, public noteService: NoteService, public toasterService: ToastService) { }
+  constructor(
+    private fb: FormBuilder,
+    public noteService: NoteService,
+    public toasterService: ToastService
+  ) {}
 
   ngOnInit(): void {
     this.creteForm();
@@ -66,7 +70,7 @@ export class NoteComponent implements OnInit {
       } else {
         this.toasterService.errorMsg(resp.message);
       }
-    })
+    });
   }
 
   saveNote() {
@@ -87,7 +91,7 @@ export class NoteComponent implements OnInit {
         } else {
           this.toasterService.errorMsg(resp.message);
         }
-      })
+      });
     }
   }
 }

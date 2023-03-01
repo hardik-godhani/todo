@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CreateUser } from './../../../core/model/user-create';
 import { Component } from '@angular/core';
-import { HttpResponse } from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -20,6 +20,7 @@ export class RegisterComponent {
   constructor(
     private formBuilder: FormBuilder,
     private registerService: RegisterService,
+    private toasterService: ToastrService,
     private route: Router
   ) {}
 
@@ -28,22 +29,14 @@ export class RegisterComponent {
       this.route.navigate(['']);
     }
     this.registerForm = this.formBuilder.group({
-      Email: ['', [Validators.required, Validators.email]],
-      Password: ['', [Validators.required, Validators.minLength(3)]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(3)]],
       name: ['', [Validators.required]],
-      licenseId: ['', [Validators.required]],
-      image: ['', [Validators.required]],
-      gender: ['', [Validators.required]],
-      mobile: ['', [Validators.required]],
-      username: ['', [Validators.required]],
-      role: ['', [Validators.required]],
     });
   }
 
   submitForm() {
     this.isLoading = true;
-    if (this.registerService.requestedUrl == '/createUser')
-      this.registerService.requestedUrl = '';
     if (this.registerForm.invalid) {
       for (const i in this.registerForm.controls) {
         this.registerForm.controls[i].markAsDirty();
@@ -53,29 +46,14 @@ export class RegisterComponent {
       return;
     }
     let model: CreateUser = new CreateUser();
-    model.email = this.val['Email'].value;
-    model.password = this.val['Password'].value;
+    model.email = this.val['email'].value;
+    model.password = this.val['password'].value;
     model.name = this.val['name'].value;
-    model.licenseId = this.val['licenseId'].value;
-    model.image = this.val['image'].value;
-    model.gender = this.val['gender'].value;
-    model.mobile = this.val['mobile'].value;
-    model.username = this.val['username'].value;
-    model.role = this.val['role'].value;
     this.registerService.createUser(model).subscribe(
-      (res: HttpResponse<any>) => {
-        if (res) {
-          // localStorage.setItem(
-          //   environment.dataKey,
-          //   btoa(JSON.stringify({ data: decodedData, token: res['token'] }))
-          // );
-          // if (this.registerService.requestedUrl) {
-          //   this.route.navigate([this.registerService.requestedUrl]);
-          // } else {
-          //   this.route.navigate(['']);
-          // }
-          // this.isLoading = false;
-          // this.registerForm.reset();
+      (res: any) => {
+        if (res.status == 'SUCCESS') {
+          this.route.navigate(['']);
+          this.toasterService.success('Registration completed! Please login now.')
         }
       },
       (err) => {}

@@ -1,8 +1,13 @@
 <div class="note-wrapper">
-  <div class="btn-wrapper">
+  <div class="btn-wrapper cmn-form-box">
     <button mat-raised-button class="add-notes" color="primary" (click)="addNotes()">
       Add Note
     </button>
+    <mat-form-field floatLabel="auto" appearance="outline" class="ml-2">
+      <mat-label>Search by Title</mat-label>
+      <input type="search" id="search" (keyup)="debouncedSearch($event)" matInput placeholder="Search by title"
+        autocomplete="disabled" />
+    </mat-form-field>
   </div>
   <div class="note-container" (scroll)="scrollNotesList()">
     <div class="single-note" *ngFor="let note of notes; let i = index">
