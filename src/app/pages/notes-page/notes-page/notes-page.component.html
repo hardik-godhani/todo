@@ -1,0 +1,12 @@
+<div class="note-wrapper">
+  <div class="btn-wrapper">
+    <button mat-raised-button class="add-notes" color="primary" (click)="addNotes()">
+      Add Note
+    </button>
+  </div>
+  <div class="note-container" (scroll)="scrollNotesList()">
+    <div class="single-note" *ngFor="let note of notes; let i = index">
+      <app-note [note]="note" (refresh)="refreshList()"></app-note>
+    </div>
+  </div>
+</div>

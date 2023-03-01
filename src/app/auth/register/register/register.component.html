@@ -1,0 +1,262 @@
+<div class="main-container">
+  <div class="box box2">
+    <h2>Register</h2>
+
+    <form [formGroup]="registerForm" id="register" class="user-form">
+      <div class="register-box">
+        <div class="register-single-field">
+          <mat-form-field
+            floatLabel="auto"
+            appearance="outline"
+            class="example-full-width"
+          >
+            <mat-label>username</mat-label>
+            <input
+              type="username"
+              id="password"
+              matInput
+              formControlName="username"
+              autocomplete="disabled"
+            />
+            <mat-error *ngIf="val?.['username']?.errors?.['required']"
+              >username is <strong>required</strong></mat-error
+            >
+            <mat-error
+              *ngIf="
+            val?.['username']?.errors?.['minlength'] && !val?.['username']?.errors?.['required']
+          "
+            >
+              Please input atleast 3 characters
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="register-single-field">
+          <mat-form-field
+            floatLabel="auto"
+            appearance="outline"
+            class="example-full-width"
+          >
+            <mat-label>Email</mat-label>
+            <input
+              type="email"
+              id="email"
+              matInput
+              formControlName="Email"
+              placeholder="Ex. pat@example.com"
+              autocomplete="disabled"
+            />
+            <mat-error *ngIf="val?.['Email']?.errors?.['required']"
+              >Email is <strong>required</strong>
+            </mat-error>
+            <mat-error
+              *ngIf="val?.['Email']?.errors?.['email'] && !val?.['Email']?.errors?.['required']"
+            >
+              Please enter a valid email address
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="register-single-field">
+          <mat-form-field
+            floatLabel="auto"
+            appearance="outline"
+            class="example-full-width"
+          >
+            <mat-label>Password</mat-label>
+            <input
+              type="password"
+              id="password"
+              matInput
+              formControlName="Password"
+              autocomplete="disabled"
+            />
+            <mat-error *ngIf="val?.['Password']?.errors?.['required']"
+              >Password is <strong>required</strong></mat-error
+            >
+            <mat-error
+              *ngIf="
+            val?.['Password']?.errors?.['minlength'] && !val?.['Password']?.errors?.['required']
+          "
+            >
+              Please input atleast 3 characters
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="register-single-field">
+          <mat-form-field
+            floatLabel="auto"
+            appearance="outline"
+            class="example-full-width"
+          >
+            <mat-label>name</mat-label>
+            <input
+              type="text"
+              id="name"
+              matInput
+              formControlName="name"
+              autocomplete="disabled"
+            />
+            <mat-error *ngIf="val?.['name']?.errors?.['required']"
+              >name is <strong>required</strong></mat-error
+            >
+            <mat-error
+              *ngIf="val?.['name']?.errors?.['minlength'] && !val?.['name']?.errors?.['required']"
+            >
+              Please input atleast 3 characters
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="register-single-field">
+          <mat-form-field
+            floatLabel="auto"
+            appearance="outline"
+            class="example-full-width"
+          >
+            <mat-label>licenseId</mat-label>
+            <input
+              type="text"
+              id="licenseId"
+              matInput
+              formControlName="licenseId"
+              autocomplete="disabled"
+            />
+            <mat-error *ngIf="val?.['licenseId']?.errors?.['required']"
+              >licenseId is <strong>required</strong>
+            </mat-error>
+            <mat-error
+              *ngIf="
+            val?.['licenseId']?.errors?.['minlength'] &&
+            !val?.['licenseId']?.errors?.['required']
+          "
+            >
+              Please input atleast 3 characters
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="register-single-field">
+          <mat-form-field
+            floatLabel="auto"
+            appearance="outline"
+            class="example-full-width"
+          >
+            <mat-label>image</mat-label>
+            <input
+              type="text"
+              id="image"
+              matInput
+              formControlName="image"
+              autocomplete="disabled"
+            />
+            <mat-error *ngIf="val?.['image']?.errors?.['required']"
+              >image is <strong>required</strong></mat-error
+            >
+            <mat-error
+              *ngIf="val?.['image']?.errors?.['minlength'] && !val?.['image']?.errors?.['required']"
+            >
+              Please input atleast 3 characters
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="register-single-field">
+          <mat-form-field
+            floatLabel="auto"
+            appearance="outline"
+            class="example-full-width"
+          >
+            <mat-label>gender</mat-label>
+            <input
+              type="gender"
+              id="gender"
+              matInput
+              formControlName="gender"
+              autocomplete="disabled"
+            />
+            <mat-error *ngIf="val?.['gender']?.errors?.['required']"
+              >gender is <strong>required</strong></mat-error
+            >
+            <mat-error
+              *ngIf="
+            val?.['gender']?.errors?.['minlength'] && !val?.['gender']?.errors?.['required']
+          "
+            >
+              Please input atleast 3 characters
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="register-single-field">
+          <mat-form-field
+            floatLabel="auto"
+            appearance="outline"
+            class="example-full-width"
+          >
+            <mat-label>mobile</mat-label>
+            <input
+              type="mobile"
+              id="mobile"
+              matInput
+              formControlName="mobile"
+              autocomplete="disabled"
+              numbersOnly
+              minlength="10"
+              maxlength="10"
+            />
+            <mat-error *ngIf="val?.['mobile']?.errors?.['required']"
+              >mobile is <strong>required</strong></mat-error
+            >
+            <mat-error
+              *ngIf="
+            val?.['mobile']?.errors?.['minlength'] && !val?.['mobile']?.errors?.['required']
+          "
+            >
+              Please input atleast 3 characters
+            </mat-error>
+            <mat-error *ngIf="val?.['mobile']?.errors?.['minlength']"
+              >Min. 10 characters
+              <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="register-single-field">
+          <mat-form-field
+            floatLabel="auto"
+            appearance="outline"
+            class="example-full-width"
+          >
+            <mat-label>role</mat-label>
+            <input
+              type="text"
+              id="role"
+              matInput
+              formControlName="role"
+              autocomplete="disabled"
+            />
+            <mat-error *ngIf="val?.['role']?.errors?.['required']"
+              >role is <strong>required</strong></mat-error
+            >
+            <mat-error
+              *ngIf="val?.['role']?.errors?.['minlength'] && !val?.['role']?.errors?.['required']"
+            >
+              Please input atleast 3 characters
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-between">
+        <button
+          color="primary"
+          mat-raised-button
+          type="submit"
+          (click)="submitForm()"
+          class="user-btn w-100"
+        >
+          Submit
+        </button>
+        <p>
+          Don't have an account ?
+          <span routerLink="/login" class="pointer">Login</span>
+        </p>
+      </div>
+    </form>
+  </div>
+</div>

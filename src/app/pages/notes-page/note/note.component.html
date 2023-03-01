@@ -1,0 +1,18 @@
+<form [formGroup]="form">
+  <div class="single-note">
+    <div class="title-div">
+      <input type="text" formControlName="title" placeholder="Title...">
+      <span class="save-icon" (click)="saveNote()">
+        <mat-icon>save</mat-icon>
+      </span>
+      <span class="close-icon" (click)="removeNote()">
+        <mat-icon>close</mat-icon>
+      </span>
+    </div>
+    <angular-editor formControlName="description" [id]="note?.id?.toString()" [config]="editorConfig"></angular-editor>
+    <span class="save-btn"> </span>
+  </div>
+</form>
+
+<!-- Backup for all notes save at a time -->
+<!-- <angular-editor [id]="id" [formControl]="form" [config]="editorConfig" (focusEvent)="showToolbar()" (blurEvent)="hideToolbar()"></angular-editor> -->

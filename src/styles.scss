@@ -1,0 +1,100 @@
+@import 'ngx-toastr/toastr';
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+.main-container {
+  width: 100%;
+  height: 100vh;
+  transition: 0.4s linear;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  max-width: 400px;
+  background: #ffff;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  width: 100%;
+  margin: 10px;
+}
+
+.box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  text-align: center;
+  background: #3f51b5;
+  color: white;
+  padding: 13px;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.box a {
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.box .input-box {
+  position: relative;
+}
+
+.box .input-box {
+  width: 100%;
+
+  font-size: 16px;
+  margin-bottom: 25px;
+  color: #fff;
+}
+
+.box input[type="submit"] {
+  background: transparent;
+  border: none;
+  outline: none;
+  background: #03a9f4;
+  color: #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#logged-in {
+  width: 100%;
+  height: auto;
+  text-align: center;
+  margin: auto;
+  position: absolute;
+  top: 50px;
+  display: none;
+}
+
+.mat-mdc-form-field {
+  width: 100% !important;
+}
+.mat-mdc-form-field-error {
+  display: block;
+  font-size: 12px;
+  padding-left: 0px;
+}
+.pointer {
+  cursor: pointer;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  overflow-y: scroll;
+  background: grey;
+  box-shadow: inset 0 0 4px #707070;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3f51b5;
+  border-radius: 10px;
+}

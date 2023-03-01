@@ -1,0 +1,20 @@
+.register-box {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.register-single-field {
+  width: 49%;
+  margin-bottom: 10px;
+}
+.box2 {
+  max-width: 800px;
+}
+@media screen and (max-width: 600px) {
+  .register-single-field {
+    width: 100%;
+  }
+}
+.pointer {
+  color: #3f51b5;
+}

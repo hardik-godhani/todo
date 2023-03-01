@@ -1,0 +1,68 @@
+<div class="main-container">
+  <div class="box">
+    <h2>TODO Login</h2>
+
+    <form [formGroup]="loginForm" id="loginForm" class="login-form">
+      <div class="input-box">
+        <mat-form-field floatLabel="auto" appearance="outline">
+          <mat-label>User Name</mat-label>
+          <input
+            type="text"
+            id="username"
+            matInput
+            formControlName="username"
+            placeholder="Ex. pat@example.com"
+            autocomplete="disabled"
+          />
+          <mat-error *ngIf="val?.['username']?.errors?.['required']"
+            >User Name is <strong>required</strong>
+          </mat-error>
+          <mat-error
+            *ngIf="
+            val?.['username']?.errors?.['username'] && !val?.['username']?.errors?.['required']
+          "
+          >
+            Please enter a valid username address
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="input-box">
+        <mat-form-field floatLabel="auto" appearance="outline">
+          <mat-label>Password</mat-label>
+          <input
+            type="password"
+            id="password"
+            matInput
+            formControlName="password"
+            autocomplete="disabled"
+          />
+          <mat-error *ngIf="val?.['password']?.errors?.['required']"
+            >Password is <strong>required</strong></mat-error
+          >
+          <mat-error
+            *ngIf="
+             !val?.['password']?.errors?.['required']
+          "
+          >
+            Please input atleast 3 characters
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <button
+          mat-raised-button
+          type="submit"
+          (click)="submitForm()"
+          color="primary"
+          class="w-100"
+        >
+          Login
+        </button>
+        <p>
+          Don't have an account ?
+          <span routerLink="/register" class="pointer">Register</span>
+        </p>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<mat-toolbar color="primary">
+  <span>Notes</span>
+  <span class="example-spacer"></span>
+  <button
+    mat-icon-button
+    [matMenuTriggerFor]="menu"
+    class="example-icon"
+    aria-label="Example icon-button with share icon"
+  >
+    <mat-icon> person</mat-icon>
+  </button>
+
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="onLogoutClick()">Log Out</button>
+  </mat-menu>
+</mat-toolbar>
+
+<router-outlet></router-outlet>

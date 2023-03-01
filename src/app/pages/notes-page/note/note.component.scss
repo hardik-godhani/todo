@@ -1,0 +1,41 @@
+.note-wrapper,
+.note-container {
+  max-width: 920px;
+  margin-top: 10px;
+  margin: 0 auto;
+}
+
+.close-icon {
+  display: inline-block;
+  position: absolute;
+  right: 5px;
+  top: 10px;
+  z-index: 5;
+  cursor: pointer;
+}
+
+.save-icon {
+  display: inline-block;
+  position: absolute;
+  right: 40px;
+  top: 10px;
+  z-index: 5;
+  cursor: pointer;
+}
+
+.title-div {
+  padding: 4px;
+  padding-top: 10px;
+  input {
+    padding-left: 10px;
+    font-size: 20px;
+    outline: none;
+    border: none;
+    width: 78%;
+  }
+}
+
+:host ::ng-deep .angular-editor-textarea,
+:host ::ng-deep .angular-editor-toolbar.ng-star-inserted {
+  border: none !important;
+}
